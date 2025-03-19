@@ -1,135 +1,5 @@
 # Movie Ratings Analysis
 
-## **Prerequisites**
-
-Before starting the assignment, ensure you have the following software installed and properly configured on your machine:
-
-1. **Python 3.x**:
-   - [Download and Install Python](https://www.python.org/downloads/)
-   - Verify installation:
-     ```bash
-     python3 --version
-     ```
-
-2. **PySpark**:
-   - Install using `pip`:
-     ```bash
-     pip install pyspark
-     ```
-
-3. **Apache Spark**:
-   - Ensure Spark is installed. You can download it from the [Apache Spark Downloads](https://spark.apache.org/downloads.html) page.
-   - Verify installation by running:
-     ```bash
-     spark-submit --version
-     ```
-
-4. **Docker & Docker Compose** (Optional):
-   - If you prefer using Docker for setting up Spark, ensure Docker and Docker Compose are installed.
-   - [Docker Installation Guide](https://docs.docker.com/get-docker/)
-   - [Docker Compose Installation Guide](https://docs.docker.com/compose/install/)
-
-## **Setup Instructions**
-
-### **1. Project Structure**
-
-Ensure your project directory follows the structure below:
-
-```
-MovieRatingsAnalysis/
-├── input/
-│   └── movie_ratings_data.csv
-├── outputs/
-│   ├── binge_watching_patterns.csv
-│   ├──churn_risk_users.csv
-│   └── movie_watching_trends.csv
-├── src/
-│   ├── task1_binge_watching_patterns.py
-│   ├── task2_churn_risk_users.py
-│   └── task3_movie_watching_trends.py
-├── docker-compose.yml
-└── README.md
-```
-
-
-
-
-
-
-
-
-
-- **input/**: Contains the `movie_ratings_data.csv` dataset.
-- **outputs/**: Directory where the results of each task will be saved.
-- **src/**: Contains the individual Python scripts for each task.
-- **docker-compose.yml**: Docker Compose configuration file to set up Spark.
-- **README.md**: Assignment instructions and guidelines.
-
-### **2. Running the Analysis Tasks**
-
-You can run the analysis tasks either locally or using Docker.
-
-#### **a. Running Locally**
-
-1. **Navigate to the Project Directory**:
-   ```bash
-   cd MovieRatingsAnalysis/
-   ```
-
-2. **Execute Each Task Using `spark-submit`**:
-   ```bash
-   spark-submit src/task1_binge_watching_patterns.py
-   spark-submit src/task2_churn_risk_users.py
-   spark-submit src/task3_movie_watching_trends.py
-   ```
-
-3. **Verify the Outputs**:
-   Check the `outputs/` directory for the resulting files:
-   ```bash
-   ls outputs/
-   ```
-   You should see:
-   - `binge_watching_patterns.txt`
-   - `churn_risk_users.csv`
-   - `movie_watching_trends.csv`
-
-#### **b. Running with Docker (Optional)**
-
-1. **Start the Spark Cluster**:
-   ```bash
-   docker-compose up -d
-   ```
-
-2. **Access the Spark Master Container**:
-   ```bash
-   docker exec -it spark-master bash
-   ```
-
-3. **Navigate to the Spark Directory**:
-   ```bash
-   cd /opt/bitnami/spark/
-   ```
-
-4. **Run Your PySpark Scripts Using `spark-submit`**:
-   ```bash
-   spark-submit src/task1_binge_watching_patterns.py
-   spark-submit src/task2_churn_risk_users.py
-   spark-submit src/task3_movie_watching_trends.py
-   ```
-
-5. **Exit the Container**:
-   ```bash
-   exit
-   ```
-
-6. **Verify the Outputs**:
-   On your host machine, check the `outputs/` directory for the resulting files.
-
-7. **Stop the Spark Cluster**:
-   ```bash
-   docker-compose down
-   ```
-
 ## **Overview**
 
 In this assignment, you will leverage Spark Structured APIs to analyze a dataset containing employee information from various departments within an organization. Your goal is to extract meaningful insights related to employee satisfaction, engagement, concerns, and job titles. This exercise is designed to enhance your data manipulation and analytical skills using Spark's powerful APIs.
@@ -267,26 +137,94 @@ A summary of **movie-watching trends** over the years, indicating peak years for
 
 ---
 
-## **Grading Criteria**
 
-Your assignment will be evaluated based on the following criteria:
+## **Prerequisites**
 
-- **Question 1**: Correct identification of departments with over 50% high satisfaction and engagement (1 mark).
-- **Question 2**: Accurate analysis of employees who feel valued but didn’t suggest improvements, including proportion (1 mark).
-- **Question 3**: Proper comparison of engagement levels across job titles and correct identification of the top-performing job title (1 mark).
+Before starting the assignment, ensure you have the following software installed and properly configured on your machine:
 
-**Total Marks: 3**
+1. **Python 3.x**:
+   - [Download and Install Python](https://www.python.org/downloads/)
+   - Verify installation:
+     ```bash
+     python3 --version
+     ```
 
----
+2. **PySpark**:
+   - Install using `pip`:
+     ```bash
+     pip install pyspark
+     ```
 
-## **Submission Guidelines**
+3. **Apache Spark**:
+   - Ensure Spark is installed. You can download it from the [Apache Spark Downloads](https://spark.apache.org/downloads.html) page.
+   - Verify installation by running:
+     ```bash
+     spark-submit --version
+     ```
 
-- **Code**: Submit all your PySpark scripts located in the `src/` directory.
-- **Report**: Include a report summarizing your findings for each task. Ensure that your report is well-structured, with clear headings and explanations.
-- **Data**: Ensure that the `movie_ratings_data.csv` used for analysis is included in the `data/` directory or provide a script for data generation if applicable.
-- **Format**: Submit your work in a zipped folder containing all necessary files.
-- **Deadline**: [Insert Deadline Here]
+4. **Docker & Docker Compose** (Optional):
+   - If you prefer using Docker for setting up Spark, ensure Docker and Docker Compose are installed.
+   - [Docker Installation Guide](https://docs.docker.com/get-docker/)
+   - [Docker Compose Installation Guide](https://docs.docker.com/compose/install/)
 
----
+## **Setup Instructions**
 
-Good luck, and happy analyzing!
+### **1. Project Structure**
+
+Ensure your project directory follows the structure below:
+
+```
+MovieRatingsAnalysis/
+├── input/
+│   └── movie_ratings_data.csv
+├── outputs/
+│   ├── binge_watching_patterns.csv
+│   ├──churn_risk_users.csv
+│   └── movie_watching_trends.csv
+├── src/
+│   ├── task1_binge_watching_patterns.py
+│   ├── task2_churn_risk_users.py
+│   └── task3_movie_watching_trends.py
+├── docker-compose.yml
+└── README.md
+```
+
+- **input/**: Contains the `movie_ratings_data.csv` dataset.
+- **outputs/**: Directory where the results of each task will be saved.
+- **src/**: Contains the individual Python scripts for each task.
+- **docker-compose.yml**: Docker Compose configuration file to set up Spark.
+
+### **2. Running the Analysis Tasks**
+
+You can run the analysis tasks either locally or using Docker.
+
+#### **a. Running Locally**
+
+1. **Navigate to the Project Directory**:
+   ```bash
+   cd MovieRatingsAnalysis/
+   ```
+
+2. **Execute Each Task Using `spark-submit`**:
+   ```bash
+   spark-submit src/task1_binge_watching_patterns.py
+   spark-submit src/task2_churn_risk_users.py
+   spark-submit src/task3_movie_watching_trends.py
+   ```
+
+3. **Verify the Outputs**:
+   Check the `outputs/` directory for the resulting files:
+   ```bash
+   ls outputs/
+   ```
+   You should see:
+   - `binge_watching_patterns.txt`
+   - `churn_risk_users.csv`
+   - `movie_watching_trends.csv`
+
+### Conclusion
+This project demonstrates the power of PySpark's structured API for analyzing large-scale movie ratings data. By examining binge-watching patterns, identifying churn risk users, and analyzing movie watching trends, we can gain valuable insights into user behavior and preferences. These insights can inform content recommendation systems, retention strategies, and content acquisition decisions for streaming platforms.
+
+The modular structure of the code allows for easy extension to include additional analyses or to adapt to changes in the data schema. The use of pandas for output writing simplifies the process of generating readable CSV files from Spark DataFrames.
+
+By overcoming the challenges described above, we've created a robust analytical solution that produces clean, useful outputs while leveraging the distributed processing capabilities of Spark for scalable data analysis.
